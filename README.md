@@ -19,3 +19,6 @@ How search works on /products endpoint. Depending on the query param you add to 
 // price lower than
 // category exact match
 // createdBy regex by name of creator
+
+
+The private key is uploaded for testing purposes, keep your private key in a safe place!
