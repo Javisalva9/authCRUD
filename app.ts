@@ -1,19 +1,19 @@
-import * as dotenv from "dotenv";
-import * as cors from "cors";
-import * as express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import express from "express";
 import { connectToDatabase } from "./config/database";
 import { userRouter } from "./routes/user";
 import { productRouter } from "./routes/product";
-dotenv.config();
 const { API_PORT, ALLOWED_ORIGINS } = process.env;
 const port = process.env.PORT || API_PORT;
-const origins = process.env.ALLOWED_ORIGINS.split['\;'] || ALLOWED_ORIGINS.split['\;'];
+const origins = ALLOWED_ORIGINS ? ALLOWED_ORIGINS.split(';') : [];
+dotenv.config();
 
 connectToDatabase()
 	.then(() => {
 		const app = express();
 		
-		app.use(cors({ origins: origins }));
+		app.use(cors({ origin: origins }));
 
 		// start the Express server
 		app.listen(port, () => {

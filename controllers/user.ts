@@ -53,7 +53,7 @@ const register = async (req: Request, res: Response) => {
   }
 }
 
-const login = async (req, res) => {
+const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
 
@@ -87,7 +87,7 @@ const login = async (req, res) => {
   }
 }
 
-const update = async (req, res) => {
+const update = async (req: Request, res: Response) => {
   try {
     const id = req?.params?.id;
     const user = req.body;

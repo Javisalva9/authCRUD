@@ -75,7 +75,7 @@ const deleteProduct = async (req: Request, res: Response) => {
   }
 }
 
-const getById = async (req, res) => {
+const getById = async (req: Request, res: Response) => {
   try {
     const id = req?.params?.id;
     const query = { _id: new mongodb.ObjectId(id) };
@@ -97,10 +97,10 @@ const getById = async (req, res) => {
 // price lower than
 // category exact match
 // createdBy regex by name of creator
-const getAll = async (req, res) => {
+const getAll = async (req: Request, res: Response) => {
   try {
     let users: IUser[];
-    let usersIds: Schema.Types.ObjectId[];
+    let usersIds: Schema.Types.ObjectId[] = [];
     if (req.query?.createdBy) {
       users = await User.find({ name: { "$regex": req.query.createdBy, "$options": "i" } })
       usersIds = users.map(user => user._id)
