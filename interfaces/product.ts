@@ -1,10 +1,10 @@
-import { Schema } from 'mongoose';
+import { Types } from 'mongoose';
 
 export interface IProduct {
-  _id: string,
+  _id: Types.ObjectId,
   name: string,
   description: string,
   category: string,
   price: number,
-  createdBy: Schema.Types.ObjectId
+  createdBy: Types.ObjectId
 }

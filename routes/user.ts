@@ -1,5 +1,5 @@
 import express from "express";
-import { verifyToken } from "../middleware/auth";
+import { verifyToken } from "../middleware/authentication";
 const userController = require('../controllers/user')
 
 export const userRouter = express.Router();
